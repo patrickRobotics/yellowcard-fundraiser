@@ -82,21 +82,17 @@ def donate(fund_id):
         }
         res = apis.post_collection_request("POST", "/business/collections", payload)
 
-        if res:
-            with open('funds.json', 'r') as f:
-                funds = json.load(f)
-            fund = funds[fund_id]
-            fund['raised_amount'] += float(request.form['amount'])
-            fund['donations'].append({'name': name, 'amount': float(request.form['amount'])})
+        with open('funds.json', 'r') as f:
+            funds = json.load(f)
+        fund = funds[fund_id]
+        fund['raised_amount'] += float(request.form['amount'])
+        fund['donations'].append({'name': name, 'amount': float(request.form['amount'])})
 
-            with open('funds.json', 'w') as f:
-                json.dump(funds, f)
+        with open('funds.json', 'w') as f:
+            json.dump(funds, f)
 
-            flash('Donation successful!')
-            return redirect(url_for('funds'))
-        else:
-            flash('Something went wrong!')
-            return redirect(url_for('funds'))
+        flash('Donation successful!')
+        return redirect(url_for('index'))
 
     return render_template(
         'donate.html',
