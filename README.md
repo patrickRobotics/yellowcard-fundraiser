@@ -57,7 +57,8 @@ SECRET_KEY=<YELLOW_CARD_SANDBOX_SECRE_KEY>
 
   `Fig. 3.4: List of donations on a fundraiser.`
 
-  * As higlighted on the challenges, I couldn't get the `POST /collections` working due to `AuthenticationError` when generating valid key:signature from signed payload.
+  * As higlighted on the challenges, I couldn't get the `POST /collections` working in order to complete the funds trasnfer due to
+    `AuthenticationError` when generating valid key:signature from signed payload.
     ```sh
     {"code":"AuthenticationError","message":"invalid apiKey signature combination"}
     ```
