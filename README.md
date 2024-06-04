@@ -23,4 +23,5 @@ SECRET_KEY=<YELLOW_CARD_SANDBOX_SECRE_KEY>
    whose details have been hard-coded in the recipient's data, towards achieving the fundraiser's goal.
 
   ![image](https://github.com/patrickRobotics/yellowcard-fundraiser/assets/4558053/aa960af2-dc8b-4265-9e2f-df41c3c41224)
-  ![image](https://github.com/patrickRobotics/yellowcard-fundraiser/assets/4558053/43b01c96-9ddb-4cf7-9c17-1e325b95508a)
+  ![image](https://github.com/patrickRobotics/yellowcard-fundraiser/assets/4558053/69ac60ee-64e5-4d8f-84e0-3263feadd586)
+
