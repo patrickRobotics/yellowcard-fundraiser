@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fundraising App</title>
+</head>
+<body>
+    <h1>Fundraising App</h1>
+    <a href="{{ url_for('create_fund') }}">Create a Fundraising Campaign</a>
+    <a href="{{ url_for('funds') }}">View All Funds</a>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    {% if funds %}
+        <h3>Fundraising Campaigns</h3>
+        <ul>
+            {% for fund in funds %}
+                <li><strong>{{ fund.title }}</strong> (${{ fund.goal_amount }}): {{ fund.description }}<br></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3>No Fundraising Campaigns records found</h3>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Funds</title>
+</head>
+<body>
+    <h1>All Fundraising Campaigns</h1>
+    <ul>
+    {% for fund in funds %}
+        <li>
+            <strong>{{ fund.title }}</strong><br>
+            {{ fund.description }}<br>
+            Goal: ${{ fund.goal_amount }}<br>
+            Raised: ${{ fund.raised_amount }}<br>
+            Donations: {% for donation in fund.donations %}
+                        <li>
+                            <small>{{ donation.name }}: ${{ donation.amount }}</small><br>
+                        </li>
+                        {% endfor %}
+
+            <a href="{{ url_for('donate', fund_id=loop.index0) }}">Donate</a>
+
+            <form action="{{ url_for('send_funds', fund_id=loop.index0) }}" method="post">
+                <input type="submit" value="Send Funds" {% if fund.raised_amount < fund.goal_amount %}disabled{% endif %}>
+            </form>
+        </li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

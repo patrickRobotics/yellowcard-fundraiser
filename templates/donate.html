@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Donate</title>
+</head>
+<body>
+    <h1>Donate to Fundraising Campaign</h1>
+    <h3>Rates in Kenya
+    {% for rate in rates["rates"] %}
+        <small>{{rate.code}}: Buying ({{ rate.buy }}), Selling ({{ rate.sell }})</small>
+    {% endfor %}
+    </h3>
+
+    <form action="{{ url_for('donate', fund_id=fund_id) }}" method="post">
+        <label for="channel">Mobile payment channel</label>
+        <select name="channel_id" id="channel_id">
+            <option>Select</option>
+            {% for channel in channels["channels"] %}
+                {% if channel.channelType == "momo" and channel.rampType == "withdraw" %}
+                    <option value={{ channel.id }} > Local Fees: {{ channel.feeLocal }} Settlement type: {{ channel.settlementType }} </option>
+                {% endif%}
+            {% endfor %}
+        </select><br>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br>
+        <label for="amount">Amount in $:</label>
+        <input type="number" id="amount" name="amount"><br>
+        <input type="submit" value="Donate">
+    </form>
+</body>
+</html>
