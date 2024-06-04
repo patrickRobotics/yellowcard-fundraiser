@@ -77,7 +77,8 @@ SECRET_KEY=<YELLOW_CARD_SANDBOX_SECRE_KEY>
    on Python after persisting for long. Mind you all the `recipes` are for POST requests only
    - The behavior is confusing where the example POST `recipe` for posting `payments` works, but updating the body's payload to post a `collection` makes it fail with the failed Authentication error
    - Constructing Post requests even when following the documentation on generating a signature is a nightmare due to the incosistent behaviors.
-      - *I would improve the documentation to make it more interactive minimizing chances of blockers due to errors for new developers*
+      - *I would improve the documentation to make it more interactive and with as much information as possible to reduce confusion,
+        frustrations and improve user experiecne for a Developer going through te API for the first time*
 2. The API documentation's on the API Reference page, is hard to test on the provided code samples due to the Authentication header 
    that needs one to generate a signed one from elsewhere and paste in the `header` section, meaning if one is not able to generate a valid key:signature combination
    they will never get the gist of how the APIs are working.
